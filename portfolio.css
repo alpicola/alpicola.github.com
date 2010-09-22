@@ -16,10 +16,15 @@ a:hover {
     text-decoration: none;
 }
 
+img {
+    vertical-align: baseline;
+}
+
 body {
     margin: 0 auto;
     padding: 3em 0;
     width: 30em;
+    font-size: 16px;
     font-family: Georgia, 'bitstream vera serif', serif;
     background-color: #fff;
 }
