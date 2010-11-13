@@ -27,9 +27,11 @@ body {
     font-size: 16px;
     font-family: Georgia, 'bitstream vera serif', serif;
     background-color: #fff;
+    /*text-shadow: #ccc 0 0 4px;*/
 }
 
 header {
+    display: block;
     margin-bottom: 1em;
     font-size: 250%;
     text-align: center;
@@ -37,6 +39,7 @@ header {
 }
 
 section {
+    display: block;
     margin: 0 auto;
     width: 5em;
     letter-spacing: -0.075em;
