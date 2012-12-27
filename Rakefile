@@ -3,13 +3,14 @@
 require 'rake/clean'
 require 'date'
 
-PANDOC = 'pandoc --smart --data-dir=. --highlight-style tango -s'
+PANDOC = 'pandoc -s --smart --data-dir=. --highlight-style tango'
 
-SRCS = FileList['**/*.md']
-HTML = SRCS.ext('html')
+HTML = FileList['**/*.md'].ext('html')
 HTML << 'index.html'
 
 CLOBBER.include(HTML)
+
+task :default => HTML
 
 file 'index.html' => FileList['posts/**/*.md'] do |t|
   posts = t.prerequisites.map {|t|
@@ -20,14 +21,14 @@ file 'index.html' => FileList['posts/**/*.md'] do |t|
       end
       m
     }
-  }.sort_by {|*_, d| d ? Date.parse(d) : Date.new(0) }.reverse
+  }.sort_by {|*_, date| Date.parse(date) }.reverse
 
   puts "#{PANDOC} -V type=index -o index.html"
   IO.popen("#{PANDOC} -V type=index -o index.html", 'r+') {|f|
     posts.each do |path, title, author, date|
-      f.puts <<-EOS
-- [#{title}](#{path}) |
-  <time datetime="#{Date.parse(date)}">#{date}</time>
+      f.puts <<-EOS.gsub(/^ {8}/, '')
+        - [#{title}](#{path}) |
+          <time datetime="#{Date.parse(date)}">#{date}</time>
       EOS
     end
   }
@@ -36,5 +37,3 @@ end
 rule '.html' => '.md' do |t|
   sh "#{PANDOC} -V type=post #{t.source} -o #{t}"
 end
-
-task :default => HTML

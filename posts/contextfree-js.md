@@ -1,6 +1,6 @@
 % contextfree.jsを書いた
 % alpicola
-% January 1, 2011
+% June 17, 2011
 
 Context Freeというフラクタルを記述するのに便利な言語をJavaScriptに移植した。
 
