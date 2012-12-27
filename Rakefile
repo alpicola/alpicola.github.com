@@ -3,7 +3,7 @@
 require 'rake/clean'
 require 'date'
 
-PANDOC = 'pandoc --smart --data-dir=. -s'
+PANDOC = 'pandoc --smart --data-dir=. --highlight-style tango -s'
 
 SRCS = FileList['**/*.md']
 HTML = SRCS.ext('html')
