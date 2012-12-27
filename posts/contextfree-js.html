@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>contextfree.jsを書いた - alpico.la</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="stylesheets/screen.css">
+    <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+    </style>
+</head>
+<body class="post">
+    <header>
+        <h1><a href="http://alpico.la">alpico.la</a></h1>
+    </header>
+    <article>
+        <span class="date">January 1, 2011</span>
+        <h1>contextfree.jsを書いた</h1>
+<p>Context Freeというフラクタルを記述するのに便利な言語をJavaScriptに移植した。</p>
+<ul>
+<li><a href="http://github.com/alpicola/contextfree.js">alpicola/contextfree.js</a></li>
+<li><a href="http://alpico.la/contextfree.js/">demo</a></li>
+</ul>
+<p>Aza Raskinさんがすでに同様のものを作っている(<a href="http://www.azarask.in/blog/post/contextfreejs-algorithm-ink-making-art-with-javascript/">ContextFree.js &amp; Algorithm Ink: Making Art with Javascript « Aza on Design</a>)のだけど、これはContext Freeの最低限の要素を実装したもので本家のギャラリー(CFDG Gallery - CFDG Gallery)にあるものなどはほとんど動作せず、描画のアルゴリズムも異なるため動作してもレンダリング結果が違うということが多い(当時の主要ブラウザのJavaScriptの実行速度を考えるとそれが“ベストプラクティス”だったのだろうけど)。</p>
+<p>そこで、本家のものとほぼ同等のレンダリングを行えるものを書いた。ただし、フラクタルの展開時に数万、数十万のオブジェクトを生成する場合があるため実行にそれなりの時間を要し、各ブラウザ間でも顕著なパフォーマンスの違いが見られた。上のサンプルだと手元のMacBook Late 2009においてChromeで10秒、FirefoxとSafariで30秒程度、Operaだと50秒かかった。もっとも、上のものはかなり多くのシェイプを生成しているので、もっと単純なものならどのブラウザでもせいぜい2、3秒で完了する。</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="ot"> src=</span><span class="st">&quot;contextfree.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
+<span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="ot"> src=</span><span class="st">&quot;cfdg.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
+<span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">window</span>.<span class="fu">onload</span> = <span class="kw">function</span>() {
+        <span class="kw">var</span> src = <span class="ch">&#39;</span>....<span class="ch">&#39;</span>; <span class="co">// cfdg source</span>
+        <span class="kw">var</span> contextfree = <span class="kw">new</span> ContextFree(src, <span class="kw">document</span>.<span class="fu">querySelector</span>(<span class="ch">&#39;canvas&#39;</span>));
+        <span class="kw">contextfree</span>.<span class="fu">render</span>(<span class="kw">function</span>() {
+            ... <span class="co">// called when rendering is done</span>
+        });
+    };
+<span class="kw">&lt;/script&gt;</span></code></pre>
+<p>実装にあたってはContext Freeの構文解析にJisonというパーサジェネレーターを、描画には普通にCanvas 2D APIを使っている。Context Free 2.xの文法をだいたい網羅しているが、今のところtile directive / path directiveがなく追々実装する予定。</p>
+    </article>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="/about">About</a></li>
+                <li><a href="http://twitter.com/alpicola" rel="me">Twitter</a></li>
+                <li><a href="http://www.hatena.ne.jp/alpicola/" rel="me">Hatena</a></li>
+                <li><a href="http://github.com/alpicola" rel="me">GitHub</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>

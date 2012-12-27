@@ -2,20 +2,32 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <title>alpico.la</title>
+    <title>$if(title)$$title$ - $endif$alpico.la</title>
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link rel="stylesheet" href="stylesheets/screen.css">
+$if(highlighting-css)$
+    <style type="text/css">
+$highlighting-css$
+    </style>
+$endif$
+$if(math)$
+    $math$
+$endif$
 </head>
-<body class="index">
+<body class="$type$">
     <header>
         <h1><a href="http://alpico.la">alpico.la</a></h1>
     </header>
     <article>
-<ul>
-<li><a href="posts/contextfree-js">contextfree.jsを書いた</a> | <time datetime="2011-01-01">January 1, 2011</time></li>
-</ul>
+$if(date)$
+        <span class="date">$date$</span>
+$endif$
+$if(title)$
+        <h1>$title$</h1>
+$endif$
+$body$
     </article>
     <footer>
         <nav>
