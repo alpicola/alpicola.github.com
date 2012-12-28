@@ -59,9 +59,12 @@ article h1 {
 }
 
 section ul {
-    font-size: 120%;
     list-style-type: disc;
-    margin: 1.5em 0;
+    margin: 1.5em 2em;
+}
+
+section ul li {
+    font-size: 120%;
 }
 
 footer {
