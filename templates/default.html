@@ -20,15 +20,19 @@ $endif$
     <header>
         <h1><a href="http://alpico.la">alpico.la</a></h1>
     </header>
+$if(title)$
     <article>
 $if(date)$
-        <span class="date">$date$</span>
+        <time>$date$</time>
 $endif$
-$if(title)$
         <h1>$title$</h1>
-$endif$
 $body$
     </article>
+$else$
+    <section>
+$body$
+    </section>
+$endif$
     <footer>
         <nav>
             <ul>

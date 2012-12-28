@@ -45,7 +45,7 @@ article {
     margin: 0 8em 1em 12em;
 }
 
-article .date {
+article > time {
     color: #aaa;
     font-style: italic;
     letter-spacing: 0.1em;
@@ -56,6 +56,10 @@ article h1 {
     font-weight: bold;
     margin: 0 0 0.8em;
     line-height: 1.2;
+}
+
+.index article ul {
+    font-size: 120%;
 }
 
 footer {
@@ -116,8 +120,4 @@ article pre code {
 article p code {
     font-size: 75%;
     background-color: #efefef;
-}
-
-.index article ul {
-    font-size: 120%;
 }

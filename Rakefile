@@ -26,10 +26,7 @@ file 'index.html' => FileList['posts/**/*.md'] do |t|
   puts "#{PANDOC} -V type=index -o index.html"
   IO.popen("#{PANDOC} -V type=index -o index.html", 'r+') {|f|
     posts.each do |path, title, author, date|
-      f.puts <<-EOS.gsub(/^ {8}/, '')
-        - [#{title}](#{path}) |
-          <time datetime="#{Date.parse(date)}">#{date}</time>
-      EOS
+      f.puts "- [#{title}](#{path}) | <time>#{date}</time>"
     end
   }
 end
