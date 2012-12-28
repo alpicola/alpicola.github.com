@@ -41,11 +41,11 @@ header h1 a, header h1 a:hover {
     color: #333;
 }
 
-article {
+article, section {
     margin: 0 8em 1em 12em;
 }
 
-article > time {
+article time {
     color: #aaa;
     font-style: italic;
     letter-spacing: 0.1em;
@@ -58,8 +58,10 @@ article h1 {
     line-height: 1.2;
 }
 
-.index article ul {
+section ul {
     font-size: 120%;
+    list-style-type: disc;
+    margin: 1.5em 0;
 }
 
 footer {
