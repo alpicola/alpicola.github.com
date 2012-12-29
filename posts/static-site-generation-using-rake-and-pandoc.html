@@ -2,37 +2,24 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <title>$if(title)$$title$ - $endif$alpico.la</title>
+    <title>RakeとPandocで静的サイト生成 - alpico.la</title>
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link rel="stylesheet" href="/stylesheets/screen.css">
-$if(highlighting-css)$
-    <style type="text/css">
-$highlighting-css$
-    </style>
-$endif$
-$if(math)$
-    $math$
-$endif$
 </head>
 <body>
     <header>
         <h1><a href="/">alpico.la</a></h1>
     </header>
-$if(title)$
     <article>
         <header>
-$if(date)$
-            <time>$date$</time>
-$endif$
-            <h1>$title$</h1>
+            <time>December 29, 2012</time>
+            <h1>RakeとPandocで静的サイト生成</h1>
         </header>
-$body$
+<p>ブログツール代わり使えるようなサイトジェネレータはもうたくさんあるけれど、手元で書き留めたメモを元にWWW上で公開するのに適当な体裁を整えてくれる程度のものでよかったので自作した。</p>
+<p>生成用のソースは生成したファイルと共に<a href="https://github.com/alpicola/alpicola.github.com">Github Pagesのレポジトリ</a>に置いて公開している。</p>
     </article>
-$else$
-$body$
-$endif$
     <footer>
         <nav>
             <ul>

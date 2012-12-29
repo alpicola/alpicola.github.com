@@ -8,7 +8,7 @@ PANDOC = 'pandoc -s --smart --data-dir=. --highlight-style tango'
 HTML = FileList['**/*.md'].ext('html')
 HTML << 'index.html'
 
-CLOBBER.include(HTML)
+CLEAN.include(HTML)
 
 task :default => HTML
 
@@ -23,8 +23,8 @@ file 'index.html' => FileList['posts/**/*.md'] do |t|
     }
   }.sort_by {|*_, date| Date.parse(date) }.reverse
 
-  puts "#{PANDOC} -V type=index -o index.html"
-  IO.popen("#{PANDOC} -V type=index -o index.html", 'r+') {|f|
+  puts "#{PANDOC} -o index.html"
+  IO.popen("#{PANDOC} -o index.html", 'r+') {|f|
     posts.each do |path, title, author, date|
       f.puts "- [#{title}](#{path}) | <time>#{date}</time>"
     end
@@ -32,5 +32,5 @@ file 'index.html' => FileList['posts/**/*.md'] do |t|
 end
 
 rule '.html' => '.md' do |t|
-  sh "#{PANDOC} -V type=post #{t.source} -o #{t}"
+  sh "#{PANDOC} #{t.source} -o #{t}"
 end

@@ -13,6 +13,11 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    color: #333;
+    border-bottom: dotted 1px;
+}
+
 /* layout */
 
 body {
@@ -25,84 +30,83 @@ body {
     line-height: 1.6;
 }
 
-header {
+body > header {
     position: fixed;
     left: 3em;
     width: 5em;
 }
 
-header h1 {
+body > header h1 {
     font-size: 180%;
     font-weight: normal;
     letter-spacing: 0.05em;
 }
 
-header h1 a, header h1 a:hover {
+body > header h1 a,
+body > header h1 a:hover {
     color: #333;
 }
 
-article, section {
+body > article {
     margin: 0 8em 1em 12em;
 }
 
-article time {
-    color: #aaa;
-    font-style: italic;
-    letter-spacing: 0.1em;
-}
-
-article h1 {
-    font-size: 250%;
-    font-weight: bold;
-    margin: 0 0 0.8em;
-    line-height: 1.2;
-}
-
-section ul {
+body > ul {
     list-style-type: disc;
-    margin: 1.5em 2em;
+    margin: 1em 8em 1em 14em;
 }
 
-section ul li {
+body > ul li {
     font-size: 120%;
 }
 
-footer {
+body > footer {
     margin: 3em 8em 0 12em;
     border-top: 1px solid #ccc;
     padding-top: 0.8em;
     color: #aaa;
 }
 
-footer nav ul {
+body > footer nav ul {
     font-size 95%;
     list-style-type: none;
 }
 
-footer nav li {
+body > footer nav li {
     display: inline;
 }
 
-footer nav ul li:first-child:before {
-    content: '';
-}
-
-footer nav ul li:before {
+body > footer nav ul li:before {
     content: '· ';
 }
 
-footer nav a {
+body > footer nav ul li:first-child:before {
+    content: '';
+}
+
+body > footer nav a {
     color: #555;
 }
 
-footer nav a:hover {
-    color: #333;
+/* article */
+
+article > header {
+    margin: 0 0 2em;
 }
 
-/* in article */
+article > header time {
+    color: #aaa;
+    font-style: italic;
+    letter-spacing: 0.1em;
+}
 
+article > header h1 {
+    font-size: 250%;
+    font-weight: bold;
+    line-height: 1.2;
+}
 article p {
-    margin: 1.5em 0;
+    margin: 0 0 1.5em;
 }
 
 article ul {
