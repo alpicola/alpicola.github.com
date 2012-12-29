@@ -4,6 +4,9 @@
 
 body {
     font-family: Palatino, 'Palatino Linotype', Georgia, serif;
+    color: #333;
+    background-color: #fff;
+    line-height: 1.6;
 }
 
 pre, code {
@@ -28,22 +31,51 @@ strong  {
     font-weight: bold;
 }
 
+/* block */
+
+p {
+    margin: 0 0 1.5em;
+}
+
+blockquote {
+    margin: 0 1em 1.5em;
+}
+
+ul {
+    list-style-type: disc;
+    margin: 1.5em 2em;
+}
+
+pre {
+    margin: 1.5em 0;
+    padding: 0.8em;
+    border: 1px solid #e5e5e5;
+    background-color: #fafafa;
+    line-height: 1.2;
+}
+
+pre code {
+    font-size: 90%;
+}
+
+p code {
+    font-size: 75%;
+    background-color: #efefef;
+}
 /* layout */
 
 body {
     font-size: 100%;
-    color: #333;
+    position: relative;
     margin: 0 auto;
-    padding: 4em 1em 4em;
-    min-width: 60em;
-    max-width: 70em;
-    line-height: 1.6;
+    padding: 4em 8em 4em 14em;
+    min-width: 40em;
+    max-width: 50em;
 }
 
 body > header {
-    position: fixed;
-    left: 3em;
-    width: 5em;
+    position: absolute;
+    left: 4em;
 }
 
 body > header h1 {
@@ -57,13 +89,24 @@ body > header h1 a:hover {
     color: #333;
 }
 
-body > article {
-    margin: 0 8em 1em 12em;
+body > article > header {
+    margin: 0 0 1.8em;
+}
+
+body > article > header time {
+    color: #aaa;
+    font-style: italic;
+    letter-spacing: 0.1em;
+}
+
+body > article > header h1 {
+    font-size: 250%;
+    font-weight: bold;
+    line-height: 1.2;
 }
 
 body > ul {
-    list-style-type: disc;
-    margin: 1em 8em 1em 14em;
+    margin: 1em 2em 1em;
 }
 
 body > ul li {
@@ -71,7 +114,7 @@ body > ul li {
 }
 
 body > footer {
-    margin: 3em 8em 0 12em;
+    margin: 2.5em 0 0;
     border-top: 1px solid #ccc;
     padding-top: 0.8em;
     color: #aaa;
@@ -79,6 +122,7 @@ body > footer {
 
 body > footer nav ul {
     font-size 95%;
+    margin: 0;
     list-style-type: none;
 }
 
@@ -86,58 +130,14 @@ body > footer nav li {
     display: inline;
 }
 
-body > footer nav ul li:before {
+body > footer nav li:before {
     content: '· ';
 }
 
-body > footer nav ul li:first-child:before {
+body > footer nav li:first-child:before {
     content: '';
 }
 
 body > footer nav a {
     color: #555;
-}
-
-/* article */
-
-article > header {
-    margin: 0 0 2em;
-}
-
-article > header time {
-    color: #aaa;
-    font-style: italic;
-    letter-spacing: 0.1em;
-}
-
-article > header h1 {
-    font-size: 250%;
-    font-weight: bold;
-    line-height: 1.2;
-}
-
-article p {
-    margin: 0 0 1.5em;
-}
-
-article ul {
-    list-style-type: disc;
-    margin: 1.5em 2em;
-}
-
-article pre {
-    margin: 1.5em 0;
-    padding: 0.8em;
-    border: 1px solid #e5e5e5;
-    background-color: #fafafa;
-    line-height: 1.2;
-}
-
-article pre code {
-    font-size: 90%;
-}
-
-article p code {
-    font-size: 75%;
-    background-color: #efefef;
 }
