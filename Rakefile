@@ -3,25 +3,27 @@
 require 'rake/clean'
 require 'date'
 
-PANDOC = 'pandoc -s --smart --data-dir=. --highlight-style tango'
+PANDOC = 'pandoc -s --smart --data-dir=.'
 
 HTML = FileList['**/*.md'].ext('html')
 HTML << 'index.html'
 
-CLEAN.include(HTML)
+CLOBBER.include(HTML)
 
-task :default => HTML
+task :default => :build
+task :build => HTML
+task :rebuild => [:clobber, :build]
 
 file 'index.html' => FileList['posts/**/*.md'] do |t|
   posts = t.prerequisites.map {|t|
     File.open(t.to_s) {|f|
-      m = [f.path.slice(/(.*)\./, 1)]
+      m = ['/' + f.path.ext('')]
       while l = f.gets and l =~ /^%\s*/
         m << $'.chomp
       end
       m
     }
-  }.sort_by {|*_, date| Date.parse(date) }.reverse
+  }.sort_by {|*, date| Date.parse(date) }.reverse
 
   puts "#{PANDOC} -o index.html"
   IO.popen("#{PANDOC} -o index.html", 'r+') {|f|

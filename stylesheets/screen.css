@@ -5,7 +5,6 @@
 body {
     font-family: Palatino, 'Palatino Linotype', Georgia, serif;
     color: #333;
-    background-color: #fff;
     line-height: 1.6;
 }
 
@@ -31,6 +30,15 @@ strong  {
     font-weight: bold;
 }
 
+p code {
+    font-size: 75%;
+    background-color: #efefef;
+}
+
+pre code {
+    font-size: 90%;
+}
+
 /* block */
 
 p {
@@ -54,14 +62,6 @@ pre {
     line-height: 1.2;
 }
 
-pre code {
-    font-size: 90%;
-}
-
-p code {
-    font-size: 75%;
-    background-color: #efefef;
-}
 /* layout */
 
 body {
@@ -141,3 +141,18 @@ body > footer nav li:first-child:before {
 body > footer nav a {
     color: #555;
 }
+
+/* highlighting style based on tango */ 
+
+code > .kw { color: #204a87; font-weight: bold; }
+code > .dt { color: #204a87; }
+code > .dv { color: #0000cf; }
+code > .bn { color: #0000cf; }
+code > .fl { color: #0000cf; }
+code > .ch { color: #4e9a06; }
+code > .st { color: #4e9a06; }
+code > .co { color: #8f5902; font-style: italic; }
+code > .ot { color: #8f5902; }
+code > .al { color: #ef2929; }
+code > .fu { color: #000000; }
+code > .er { font-weight: bold; }
