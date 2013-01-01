@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://alpico.la/</id>
+    <title>alpico.la</title>
+    <updated>2012-12-31 23:13:13 +0900</updated>
+    <link rel="alternate" href="http://alpico.la/"/>
+    <link rel="self" href="http://alpico.la/feed.xml"/>
+    <entry>
+        <id>http://alpico.la/posts/static-site-generation-using-rake-and-pandoc</id>
+        <title>RakeとPandocで静的サイト生成 - alpico.la</title>
+        <updated>2012-12-31 23:13:13 +0900</updated>
+        <link rel="alternate" href="http://alpico.la/posts/static-site-generation-using-rake-and-pandoc"/>
+    </entry>
+</feed>

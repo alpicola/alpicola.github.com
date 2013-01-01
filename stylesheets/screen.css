@@ -120,25 +120,25 @@ body > footer {
     color: #aaa;
 }
 
-body > footer nav ul {
+body > footer ul {
     font-size 95%;
     margin: 0;
     list-style-type: none;
 }
 
-body > footer nav li {
+body > footer li {
     display: inline;
 }
 
-body > footer nav li:before {
+body > footer li:before {
     content: '· ';
 }
 
-body > footer nav li:first-child:before {
+body > footer li:first-child:before {
     content: '';
 }
 
-body > footer nav a {
+body > footer a {
     color: #555;
 }
 
