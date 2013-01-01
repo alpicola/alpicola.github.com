@@ -46,7 +46,7 @@ file 'index.html' => FileList['posts/**/*.md'] do |t|
     xml.feed(:xmlns => 'http://www.w3.org/2005/Atom') do
       xml.id      URL
       xml.title   TITLE
-      xml.updated t.prerequisite_tasks.map(&:timestamp).max || t.timestamp
+      xml.updated (t.prerequisite_tasks.map(&:timestamp).max || t.timestamp).iso8601
       xml.link :rel => 'alternate', :href => URL
       xml.link :rel => 'self', :href => URL + 'feed.xml'
 
@@ -54,7 +54,7 @@ file 'index.html' => FileList['posts/**/*.md'] do |t|
         xml.entry do
           xml.id      URL + path
           xml.title   title + ' - ' + TITLE
-          xml.updated updated
+          xml.updated updated.iso8601
           xml.link :rel => 'alternate', :href => URL + path
         end
       end
