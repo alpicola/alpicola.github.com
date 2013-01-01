@@ -53,7 +53,7 @@ file 'index.html' => FileList['posts/**/*.md'] do |t|
       posts.each do |path, updated, title|
         xml.entry do
           xml.id      URL + path
-          xml.title   title + ' - ' + TITLE
+          xml.title   title
           xml.updated updated.iso8601
           xml.link :rel => 'alternate', :href => URL + path
         end
