@@ -2,13 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://alpico.la/</id>
     <title>alpico.la</title>
-    <updated>2013-01-07T23:36:37+09:00</updated>
+    <updated>2013-01-07T23:42:22+09:00</updated>
     <link rel="alternate" href="http://alpico.la/"/>
     <link rel="self" href="http://alpico.la/feed.xml"/>
     <entry>
         <id>http://alpico.la/posts/scheme-in-48-hours</id>
         <title>Schemeを48時間で書く</title>
-        <updated>2013-01-07T23:36:37+09:00</updated>
+        <updated>2013-01-07T23:42:22+09:00</updated>
         <link rel="alternate" href="http://alpico.la/posts/scheme-in-48-hours"/>
     </entry>
     <entry>
